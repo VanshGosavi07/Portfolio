@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vansh Gosavi - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'pulse-orange': 'pulseOrange 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'rotate-y': 'rotateY 20s linear infinite',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'morph': 'morph 8s ease-in-out infinite',
+                        'gradient-shift': 'gradientShift 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(50px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotateX(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotateX(10deg)' },
+                        },
+                        glow: {
+                            '0%': { 
+                                boxShadow: '0 0 20px rgba(249, 115, 22, 0.5), 0 0 40px rgba(249, 115, 22, 0.3)',
+                                transform: 'scale(1)'
+                            },
+                            '100%': { 
+                                boxShadow: '0 0 30px rgba(249, 115, 22, 0.8), 0 0 60px rgba(249, 115, 22, 0.5)',
+                                transform: 'scale(1.05)'
+                            },
+                        },
+                        pulseOrange: {
+                            '0%, 100%': { 
+                                backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                                borderColor: 'rgba(249, 115, 22, 0.3)'
+                            },
+                            '50%': { 
+                                backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                                borderColor: 'rgba(249, 115, 22, 0.6)'
+                            },
+                        },
+                        rotateY: {
+                            '0%': { transform: 'rotateY(0deg) rotateX(0deg)' },
+                            '25%': { transform: 'rotateY(90deg) rotateX(5deg)' },
+                            '50%': { transform: 'rotateY(180deg) rotateX(0deg)' },
+                            '75%': { transform: 'rotateY(270deg) rotateX(-5deg)' },
+                            '100%': { transform: 'rotateY(360deg) rotateX(0deg)' },
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-100px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(100px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        morph: {
+                            '0%, 100%': { 
+                                borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
+                                transform: 'scale(1) rotate(0deg)'
+                            },
+                            '25%': { 
+                                borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%',
+                                transform: 'scale(1.1) rotate(90deg)'
+                            },
+                            '50%': { 
+                                borderRadius: '50% 60% 30% 60% / 30% 60% 70% 40%',
+                                transform: 'scale(0.9) rotate(180deg)'
+                            },
+                            '75%': { 
+                                borderRadius: '60% 40% 60% 30% / 70% 30% 40% 70%',
+                                transform: 'scale(1.05) rotate(270deg)'
+                            },
+                        },
+                        gradientShift: {
+                            '0%, 100%': { 
+                                background: 'linear-gradient(45deg, #dc2626, #ea580c, #f97316)',
+                            },
+                            '33%': { 
+                                background: 'linear-gradient(45deg, #ea580c, #f97316, #f59e0b)',
+                            },
+                            '66%': { 
+                                background: 'linear-gradient(45deg, #f97316, #f59e0b, #dc2626)',
+                            },
+                        },
+                    },
+                    colors: {
+                        dark: '#0a0a0a',
+                        darker: '#050505',
+                        'dark-red': '#1a0000',
+                        'blood-red': '#2d0000',
+                        'orange-glow': '#ff6b00',
+                        'orange-bright': '#ff8500',
+                    },
+                    perspective: {
+                        '1000': '1000px',
+                        '2000': '2000px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 50%, #0a0a0a 100%);
+            min-height: 100vh;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #f97316, #ff6b00, #ea580c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+        .glass-effect {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+        }
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .preserve-3d {
+            transform-style: preserve-3d;
+        }
+        .rotate-x-12 {
+            transform: rotateX(12deg);
+        }
+        .shadow-orange {
+            box-shadow: 0 25px 50px -12px rgba(249, 115, 22, 0.25);
+        }
+        .text-shadow {
+            text-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+        }
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .card-3d:hover {
+            transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+        }
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        .morphing-bg {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #dc2626, #ea580c, #f97316);
+            opacity: 0.1;
+            animation: morph 8s ease-in-out infinite;
+            filter: blur(40px);
+        }
+        .glow-border {
+            position: relative;
+            overflow: hidden;
+        }
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #f97316, #ea580c, #dc2626, #f97316);
+            border-radius: inherit;
+            z-index: -1;
+            animation: rotate-y 4s linear infinite;
+        }
+        .glow-border::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: inherit;
+            border-radius: inherit;
+            z-index: -1;
+        }
+        
+        /* SPA Loading and Transition Styles */
+        .section-loading {
+            opacity: 0.6;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .section-transition {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .fade-in-section {
+            animation: fadeInSection 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeInSection {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .active-nav {
+            color: #f97316 !important;
+            text-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+        }
+        
+        .lazy-load {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .lazy-load.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Enhanced mobile menu styles */
+        .mobile-menu-item {
+            transform: translateX(-20px);
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+        
+        .mobile-menu-item.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        /* Page transition overlay */
+        .page-transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #0a0a0a, #1a0000);
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+        
+        .page-transition-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-100 relative overflow-x-hidden">
+    <!-- Page Transition Overlay -->
+    <div id="page-transition" class="page-transition-overlay">
+        <div class="flex items-center justify-center h-full">
+            <div class="text-center">
+                <div class="w-16 h-16 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                <p class="text-orange-400 text-lg font-medium">Loading...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animated Background Elements -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="morphing-bg top-10 left-10 animate-morph"></div>
+        <div class="morphing-bg top-1/3 right-10 animate-morph" style="animation-delay: 2s;"></div>
+        <div class="morphing-bg bottom-20 left-1/4 animate-morph" style="animation-delay: 4s;"></div>
+        <div class="morphing-bg bottom-10 right-1/3 animate-morph" style="animation-delay: 6s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full glass-effect border-b border-orange-500/30 z-50 animate-slide-in-left">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3 floating-element">
+                    <div class="bg-gradient-to-br from-orange-500 to-red-600 w-10 h-10 flex items-center justify-center rounded-lg glow-border animate-glow">
+                        <span class="text-xl font-bold text-white text-shadow">VG</span>
+                    </div>
+                    <span class="text-2xl font-bold gradient-text">Vansh Gosavi</span>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm">
+                    <a href="#hero" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                        Home
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#about" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                        About
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#education" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                        Education
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#skills" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                        Skills
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#projects" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                        Projects
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#experience" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                        Experience
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#research" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                        Research
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#contact" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                        Contact
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <button class="md:hidden text-gray-300 hover:text-orange-400 animate-pulse-orange p-2 rounded-lg" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div id="flash-messages" class="fixed top-24 right-4 z-50 space-y-3">
+                {% for category, message in messages %}
+                    {% set bg_color = 'from-green-600 to-emerald-700' if category == 'success' else ('from-yellow-600 to-amber-700' if category == 'warning' else ('from-blue-600 to-cyan-700' if category == 'info' else 'from-green-600 to-emerald-700')) %}
+                    {% set icon_path = 'M5 13l4 4L19 7' if category == 'success' else ('M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.464 0L4.732 18.5c-.77.833.192 2.5 1.732 2.5z' if category == 'warning' else 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z') %}
+                    <div class="flash-message bg-gradient-to-r {{ bg_color }} text-white px-6 py-4 rounded-xl shadow-orange max-w-md transform translate-x-full opacity-0 transition-all duration-700 ease-out glow-border animate-glow">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 flex-shrink-0 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ icon_path }}"></path>
+                                </svg>
+                                <span class="font-medium text-sm leading-relaxed text-shadow">{{ message }}</span>
+                            </div>
+                            <button onclick="closeFlashMessage(this)" class="ml-4 text-white hover:text-orange-200 flex-shrink-0 transition duration-300 hover:scale-110">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Hero Section -->
+    {% include 'sections/hero.html' %}
+    
+    <!-- About Me Section -->
+    {% include 'sections/about.html' %}
+    
+    <!-- Education Section -->
+    {% include 'sections/education.html' %}
+    
+    <!-- Skills Section -->
+    {% include 'sections/skills.html' %}
+    
+    <!-- Projects Section -->
+    {% include 'sections/projects.html' %}
+    
+    <!-- Experience Section -->
+    {% include 'sections/experience.html' %}
+    
+    <!-- Research & Publications Section -->
+    {% include 'sections/research.html' %}
+    
+    <!-- Training/Courses & Workshops Section -->
+    {% include 'sections/training.html' %}
+    
+    <!-- Extra Curricular Activities & Interests Section -->
+    {% include 'sections/activities.html' %}
+    
+    <!-- Contact Section -->
+    {% include 'sections/contact.html' %}
+    
+    <!-- Footer Section -->
+    {% include 'sections/footer.html' %}
+
+    <!-- JavaScript for SPA functionality, enhanced animations, smooth scrolling and mobile menu -->
+    <script>
+        // SPA Router Class
+        class SPARouter {
+            constructor() {
+                this.routes = {
+                    '': 'hero',
+                    'home': 'hero',
+                    'about': 'about',
+                    'education': 'education',
+                    'skills': 'skills',
+                    'projects': 'projects',
+                    'experience': 'experience',
+                    'research': 'research',
+                    'training': 'training',
+                    'activities': 'activities',
+                    'contact': 'contact'
+                };
+                this.currentSection = 'hero';
+                this.init();
+            }
+
+            init() {
+                // Handle browser back/forward buttons
+                window.addEventListener('popstate', (e) => {
+                    this.handleRoute(e.state?.section || 'hero', false);
+                });
+
+                // Handle initial load
+                const hash = window.location.hash.substring(1);
+                this.handleRoute(hash || 'hero', false);
+
+                // Add intersection observer for auto-updating URL
+                this.setupIntersectionObserver();
+            }
+
+            handleRoute(section, pushState = true) {
+                if (this.routes[section]) {
+                    this.navigateToSection(this.routes[section], pushState);
+                } else {
+                    this.navigateToSection('hero', pushState);
+                }
+            }
+
+            navigateToSection(sectionId, pushState = true) {
+                const targetSection = document.getElementById(sectionId);
+                if (!targetSection) return;
+
+                // Update current section
+                this.currentSection = sectionId;
+
+                // Update URL without page reload
+                if (pushState) {
+                    const newUrl = sectionId === 'hero' ? '#' : `#${sectionId}`;
+                    history.pushState({ section: sectionId }, '', newUrl);
+                }
+
+                // Smooth scroll to section
+                const offsetTop = targetSection.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+
+                // Update active navigation
+                this.updateActiveNav(sectionId);
+
+                // Add loading animation
+                this.addSectionAnimation(targetSection);
+
+                // Update page title
+                this.updatePageTitle(sectionId);
+            }
+
+            updateActiveNav(sectionId) {
+                const navLinks = document.querySelectorAll('nav a[href^="#"]');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-orange-400', 'active-nav');
+                    const href = link.getAttribute('href').substring(1);
+                    if (href === sectionId || (href === 'hero' && sectionId === 'hero')) {
+                        link.classList.add('text-orange-400', 'active-nav');
+                    }
+                });
+            }
+
+            updatePageTitle(sectionId) {
+                const titles = {
+                    'hero': 'Vansh Gosavi - Portfolio',
+                    'about': 'About - Vansh Gosavi',
+                    'education': 'Education - Vansh Gosavi',
+                    'skills': 'Skills - Vansh Gosavi',
+                    'projects': 'Projects - Vansh Gosavi',
+                    'experience': 'Experience - Vansh Gosavi',
+                    'research': 'Research - Vansh Gosavi',
+                    'training': 'Training - Vansh Gosavi',
+                    'activities': 'Activities - Vansh Gosavi',
+                    'contact': 'Contact - Vansh Gosavi'
+                };
+                document.title = titles[sectionId] || 'Vansh Gosavi - Portfolio';
+            }
+
+            addSectionAnimation(section) {
+                // Add entrance animation to section content
+                const content = section.querySelectorAll('.container > *');
+                content.forEach((element, index) => {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(30px)';
+                    setTimeout(() => {
+                        element.style.transition = 'all 0.6s ease-out';
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }
+
+            setupIntersectionObserver() {
+                const observerOptions = {
+                    threshold: 0.6,
+                    rootMargin: '-80px 0px -50% 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const sectionId = entry.target.id;
+                            if (sectionId && this.currentSection !== sectionId) {
+                                this.currentSection = sectionId;
+                                this.updateActiveNav(sectionId);
+                                this.updatePageTitle(sectionId);
+                                
+                                // Update URL without triggering navigation
+                                const newUrl = sectionId === 'hero' ? '#' : `#${sectionId}`;
+                                history.replaceState({ section: sectionId }, '', newUrl);
+                            }
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe all sections
+                document.querySelectorAll('section[id]').forEach(section => {
+                    observer.observe(section);
+                });
+            }
+        }
+
+        // Initialize SPA Router
+        let router;
+
+        // Flash message functions with enhanced animations
+        function closeFlashMessage(button) {
+            const message = button.closest('.flash-message');
+            message.style.transform = 'translateX(100%) scale(0.8) rotateY(90deg)';
+            message.style.opacity = '0';
+            setTimeout(() => {
+                if (message.parentElement) {
+                    message.remove();
+                }
+            }, 700);
+        }
+
+        // Enhanced DOM ready function
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize SPA Router
+            router = new SPARouter();
+
+            // Flash messages animation
+            const flashMessages = document.querySelectorAll('.flash-message');
+            flashMessages.forEach((message, index) => {
+                setTimeout(() => {
+                    message.style.transform = 'translateX(0) scale(1) rotateY(0deg)';
+                    message.style.opacity = '1';
+                }, index * 300);
+                
+                // Auto-hide after 6 seconds with enhanced animation
+                setTimeout(() => {
+                    if (message.parentElement) {
+                        closeFlashMessage(message.querySelector('button'));
+                    }
+                }, 6000 + (index * 300));
+            });
+
+            // Add enhanced scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections for animations
+            document.querySelectorAll('section').forEach(section => {
+                animationObserver.observe(section);
+            });
+
+            // Add parallax effect to background elements
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const morphingElements = document.querySelectorAll('.morphing-bg');
+                morphingElements.forEach((element, index) => {
+                    const speed = 0.5 + (index * 0.1);
+                    element.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+                });
+            });
+
+            // Add mouse movement parallax effect
+            document.addEventListener('mousemove', (e) => {
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                
+                document.querySelectorAll('.floating-element').forEach((element, index) => {
+                    const speed = (index + 1) * 10;
+                    element.style.transform = `translate(${mouseX * speed}px, ${mouseY * speed}px)`;
+                });
+            });
+
+            // Preload section content for better SPA performance
+            this.preloadSectionContent();
+        });
+
+        // SPA Navigation - Enhanced smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('href').substring(1) || 'hero';
+                
+                // Use SPA router for navigation
+                if (router) {
+                    router.handleRoute(sectionId, true);
+                }
+                
+                // Add visual feedback
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+
+        // Enhanced mobile menu toggle with animations
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'md:hidden glass-effect border-t border-orange-500/30 transform translate-y-full opacity-0 transition-all duration-500';
+        mobileMenu.innerHTML = `
+            <div class="px-6 py-6 space-y-4">
+                <a href="#hero" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-500 group">
+                    <span class="flex items-center">
+                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        Home
+                    </span>
+                </a>
+                <a href="#about" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-500 group">
+                    <span class="flex items-center">
+                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        About
+                    </span>
+                </a>
+                <a href="#education" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-500 group">
+                    <span class="flex items-center">
+                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        Education
+                    </span>
+                </a>
+                <a href="#skills" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-500 group">
+                    <span class="flex items-center">
+                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        Skills
+                    </span>
+                </a>
+                <a href="#projects" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-500 group">
+                    <span class="flex items-center">
+                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        Projects
+                    </span>
+                </a>
+                <a href="#experience" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-500 group">
+                    <span class="flex items-center">
+                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        Experience
+                    </span>
+                </a>
+                <a href="#research" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-500 group">
+                    <span class="flex items-center">
+                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        Research
+                    </span>
+                </a>
+                <a href="#contact" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 group">
+                    <span class="flex items-center">
+                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        Contact
+                    </span>
+                </a>
+            </div>
+        `;
+        
+        let menuOpen = false;
+        mobileMenuBtn.addEventListener('click', () => {
+            if (!menuOpen) {
+                mobileMenuBtn.parentElement.parentElement.parentElement.appendChild(mobileMenu);
+                // Trigger animation after element is added to DOM
+                setTimeout(() => {
+                    mobileMenu.style.transform = 'translateY(0)';
+                    mobileMenu.style.opacity = '1';
+                }, 10);
+                menuOpen = true;
+                
+                // Animate menu button
+                mobileMenuBtn.style.transform = 'rotate(90deg)';
+            } else {
+                mobileMenu.style.transform = 'translateY(-100%)';
+                mobileMenu.style.opacity = '0';
+                setTimeout(() => {
+                    if (mobileMenu.parentElement) {
+                        mobileMenu.parentElement.removeChild(mobileMenu);
+                    }
+                }, 500);
+                menuOpen = false;
+                
+                // Reset menu button
+                mobileMenuBtn.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                mobileMenu.style.transform = 'translateY(-100%)';
+                mobileMenu.style.opacity = '0';
+                setTimeout(() => {
+                    if (mobileMenu.parentElement) {
+                        mobileMenu.parentElement.removeChild(mobileMenu);
+                    }
+                }, 500);
+                menuOpen = false;
+                mobileMenuBtn.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // SPA Performance Optimizations
+        function preloadSectionContent() {
+            // Preload critical resources
+            const criticalImages = document.querySelectorAll('img[data-src]');
+            criticalImages.forEach(img => {
+                img.src = img.dataset.src;
+            });
+
+            // Lazy load non-critical content
+            const lazyElements = document.querySelectorAll('.lazy-load');
+            const lazyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('loaded');
+                        lazyObserver.unobserve(entry.target);
+                    }
+                });
+            });
+
+            lazyElements.forEach(element => {
+                lazyObserver.observe(element);
+            });
+        }
+
+        // Contact form SPA integration
+        function handleContactFormSPA() {
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading state
+                    const submitBtn = document.getElementById('submit-btn');
+                    const submitText = document.getElementById('submit-text');
+                    const submitLoading = document.getElementById('submit-loading');
+                    
+                    submitBtn.disabled = true;
+                    submitText.classList.add('hidden');
+                    submitLoading.classList.remove('hidden');
+                    
+                    // Submit form via AJAX for SPA experience
+                    const formData = new FormData(this);
+                    fetch('/contact', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        // Show success message without page reload
+                        showSPAFlashMessage('✅ Message sent successfully! Thank you, I will respond within 24-48 hours.', 'success');
+                        contactForm.reset();
+                    })
+                    .catch(error => {
+                        showSPAFlashMessage('⚠️ There was an error sending your message. Please try again.', 'error');
+                    })
+                    .finally(() => {
+                        // Reset button state
+                        submitBtn.disabled = false;
+                        submitText.classList.remove('hidden');
+                        submitLoading.classList.add('hidden');
+                    });
+                });
+            }
+        }
+
+        function showSPAFlashMessage(message, type) {
+            const flashContainer = document.getElementById('flash-messages') || createFlashContainer();
+            const messageDiv = document.createElement('div');
+            const bgColor = type === 'success' ? 'from-green-600 to-emerald-700' : 'from-red-600 to-red-700';
+            
+            messageDiv.className = `flash-message bg-gradient-to-r ${bgColor} text-white px-6 py-4 rounded-xl shadow-orange max-w-md transform translate-x-full opacity-0 transition-all duration-700 ease-out glow-border animate-glow`;
+            messageDiv.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <div class="flex items-start">
+                        <svg class="w-5 h-5 mr-3 mt-0.5 flex-shrink-0 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="font-medium text-sm leading-relaxed text-shadow">${message}</span>
+                    </div>
+                    <button onclick="closeFlashMessage(this)" class="ml-4 text-white hover:text-orange-200 flex-shrink-0 transition duration-300 hover:scale-110">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            `;
+            
+            flashContainer.appendChild(messageDiv);
+            
+            // Animate in
+            setTimeout(() => {
+                messageDiv.style.transform = 'translateX(0) scale(1) rotateY(0deg)';
+                messageDiv.style.opacity = '1';
+            }, 100);
+            
+            // Auto-hide after 6 seconds
+            setTimeout(() => {
+                closeFlashMessage(messageDiv.querySelector('button'));
+            }, 6000);
+        }
+
+        function createFlashContainer() {
+            const container = document.createElement('div');
+            container.id = 'flash-messages';
+            container.className = 'fixed top-24 right-4 z-50 space-y-3';
+            document.body.appendChild(container);
+            return container;
+        }
+
+        // Initialize contact form SPA functionality when DOM is ready
+        document.addEventListener('DOMContentLoaded', handleContactFormSPA);
+    </script>
+</body>
+</html>

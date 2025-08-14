@@ -1,0 +1,71 @@
+<!-- About Me Section -->
+<section id="about" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+            <!-- Image Column - Circular format -->
+            <div class="lg:w-2/5 mb-10 lg:mb-0 flex justify-center">
+                <div class="relative">
+                    <img src="{{ url_for('static', filename='My_Image.jpg') }}" alt="Vansh Gosavi" 
+                         class="w-80 h-80 object-cover rounded-full shadow-2xl border-4 border-gray-700"
+                         style="object-position: center top;">
+                    <div class="absolute -bottom-4 -right-4 bg-orange-500 text-white p-4 rounded-full">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Text Column -->
+            <div class="lg:w-3/5">
+                <h2 class="text-4xl font-bold mb-6 text-white">About <span class="text-orange-500">Me</span></h2>
+                
+                <div class="space-y-4">
+                    <p class="text-base text-gray-400 leading-relaxed">
+                        I'm <strong class="text-orange-400">Vansh Sambhaji Gosavi</strong>, a motivated Information Technology student at SVKM's Institute of Technology, Dhule, with a strong foundation in software engineering principles and modern development practices.
+                    </p>
+                    
+                    <p class="text-base text-gray-400 leading-relaxed">
+                        I specialize in backend technologies such as Python, Flask, and SQL, while also being proficient in frontend development using React.js, JavaScript, HTML, and CSS. My technical expertise spans API integration, Agile methodologies, and interactive dashboards for real-time data visualization.
+                    </p>
+                    
+                    <p class="text-base text-gray-400 leading-relaxed">
+                        Through multiple internship experiences, I've designed scalable applications using clean architecture and secure coding practices. My research includes published work on Brain-Computer Interfaces in lie detection, combining innovation with practical applications.
+                    </p>
+                    
+                    <p class="text-base text-gray-400 leading-relaxed">
+                        Beyond technology, I'm a curious learner who enjoys hackathons and knowledge-sharing communities, embracing challenges that encourage professional growth.
+                    </p>
+                </div>
+                
+                <!-- Key Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+                    <div class="text-center bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <div class="text-2xl font-bold text-orange-500">8.26</div>
+                        <div class="text-sm text-gray-400">Current CGPA</div>
+                    </div>
+                    <div class="text-center bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <div class="text-2xl font-bold text-orange-500">5+</div>
+                        <div class="text-sm text-gray-400">Major Projects</div>
+                    </div>
+                    <div class="text-center bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <div class="text-2xl font-bold text-orange-500">2</div>
+                        <div class="text-sm text-gray-400">Internships</div>
+                    </div>
+                    <div class="text-center bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <div class="text-2xl font-bold text-orange-500">1</div>
+                        <div class="text-sm text-gray-400">Research Paper</div>
+                    </div>
+                </div>
+                
+                <!-- Personal Qualities -->
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-gray-800 text-orange-400 px-4 py-2 rounded-full font-medium border border-gray-700">Problem Solver</span>
+                    <span class="bg-gray-800 text-orange-400 px-4 py-2 rounded-full font-medium border border-gray-700">Innovative Thinker</span>
+                    <span class="bg-gray-800 text-orange-400 px-4 py-2 rounded-full font-medium border border-gray-700">Continuous Learner</span>
+                    <span class="bg-gray-800 text-orange-400 px-4 py-2 rounded-full font-medium border border-gray-700">Tech Enthusiast</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
