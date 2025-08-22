@@ -1,98 +1,193 @@
-<!-- Education Section -->
-<section id="education" class="py-20 bg-gray-900">
-    <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center mb-16 text-orange-500">Education</h2>
-        <div class="max-w-4xl mx-auto">
-            <div class="relative">
-                <!-- Timeline line -->
-                <div class="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-orange-500/30"></div>
+<!-- Education Section - Card-Based Responsive Layout -->
+<section id="education" class="py-12 sm:py-16 md:py-20 bg-professional-dark">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 md:mb-16 text-orange-primary animate-fade-in-down">Education</h2>
+        
+        <!-- Education Cards Grid -->
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
                 
-                <!-- Education Item 1 - Current -->
-                <div class="relative flex items-center justify-between w-full mb-8">
-                    <div class="w-5/12">
-                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-orange-500">
-                            <div class="flex items-center mb-2">
-                                <span class="bg-orange-500/20 text-orange-400 px-2 py-1 rounded text-xs font-medium">Current</span>
+                <!-- Education Card 1 - Current (B.Tech) -->
+                <div class="group relative overflow-hidden animate-fade-in-up">
+                    <div class="glass-card p-6 sm:p-8 rounded-xl shadow-xl border border-orange-primary/30 hover:border-orange-primary/60 transition-all duration-300 card-3d h-full">
+                        <!-- Current Badge -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-gradient-to-r from-orange-primary to-orange-secondary text-white px-3 py-1 rounded-full text-xs font-semibold animate-pulse shadow-lg">
+                                🎓 Current
+                            </span>
+                            <div class="text-2xl animate-float">🏛️</div>
+                        </div>
+                        
+                        <!-- Card Header -->
+                        <div class="mb-6">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-orange-primary transition-colors duration-300">
+                                Bachelor of Technology
+                            </h3>
+                            <p class="text-orange-primary font-semibold text-lg mb-2">Information Technology (IT)</p>
+                            <p class="text-gray-300 text-base font-medium">SVKM's Institute of Technology, Dhule</p>
+                        </div>
+                        
+                        <!-- Duration -->
+                        <div class="mb-6">
+                            <p class="text-gray-400 text-sm font-medium bg-gray-800/50 px-3 py-2 rounded-lg inline-block">
+                                📅 2022 - 2026 (Expected)
+                            </p>
+                        </div>
+                        
+                        <!-- Details -->
+                        <div class="space-y-3">
+                            <div class="bg-orange-primary/10 p-4 rounded-lg border-l-4 border-orange-primary">
+                                <p class="text-white font-semibold text-lg">
+                                    📊 CGPA: <span class="text-orange-primary">8.26/10</span>
+                                </p>
                             </div>
-                            <h3 class="text-xl font-semibold text-white mb-2">Bachelor of Technology</h3>
-                            <p class="text-orange-400 font-medium mb-2">Information Technology (IT)</p>
-                            <p class="text-gray-400 mb-3">SVKM's Institute of Technology, Dhule</p>
-                            <p class="text-gray-500 text-sm mb-3">2022 - 2026 (Expected)</p>
-                            <div class="space-y-1 text-sm text-gray-400">
-                                <p>• <strong>CGPA:</strong> 8.26/10 (Current)</p>
-                                <p>• Specialization: Full-Stack Development & AI</p>
-                                <p>• Training & Placement Student Coordinator</p>
-                                <p>• Member of ISTE (Indian Society for Technical Education)</p>
+                            <div class="space-y-2 text-sm text-gray-300">
+                                <p class="flex items-start">
+                                    <span class="text-orange-primary mr-2 mt-1">🎯</span>
+                                    <span>Specialization: Full-Stack Development & AI</span>
+                                </p>
+                                <p class="flex items-start">
+                                    <span class="text-orange-primary mr-2 mt-1">👨‍💼</span>
+                                    <span>Training & Placement Student Coordinator</span>
+                                </p>
+                                <p class="flex items-start">
+                                    <span class="text-orange-primary mr-2 mt-1">🏆</span>
+                                    <span>Member of ISTE (Indian Society for Technical Education)</span>
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-orange-500 rounded-full border-4 border-gray-800 shadow"></div>
-                    <div class="w-5/12"></div>
                 </div>
                 
-                <!-- Education Item 2 - High School -->
-                <div class="relative flex items-center justify-between w-full mb-8">
-                    <div class="w-5/12"></div>
-                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-orange-500 rounded-full border-4 border-gray-800 shadow"></div>
-                    <div class="w-5/12">
-                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg border-r-4 border-orange-500">
-                            <h3 class="text-xl font-semibold text-white mb-2">Higher Secondary Certificate (HSC)</h3>
-                            <p class="text-orange-400 font-medium mb-2">Science Stream</p>
-                            <p class="text-gray-400 mb-3">SSVPS Jr. College, Dhule</p>
-                            <p class="text-gray-500 text-sm mb-3">2020 - 2022</p>
-                            <div class="space-y-1 text-sm text-gray-400">
-                                <p>• <strong>Percentage:</strong> 73.67%</p>
-                                <p>• Board: Maharashtra State Board</p>
-                                <p>• Subjects: Physics, Chemistry, Mathematics</p>
+                <!-- Education Card 2 - HSC -->
+                <div class="group relative overflow-hidden animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="glass-card p-6 sm:p-8 rounded-xl shadow-xl border border-orange-primary/30 hover:border-orange-primary/60 transition-all duration-300 card-3d h-full">
+                        <!-- Header -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                                📚 Higher Secondary
+                            </span>
+                            <div class="text-2xl animate-float" style="animation-delay: 1s;">🏫</div>
+                        </div>
+                        
+                        <!-- Card Header -->
+                        <div class="mb-6">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-orange-primary transition-colors duration-300">
+                                Higher Secondary Certificate
+                            </h3>
+                            <p class="text-orange-primary font-semibold text-lg mb-2">Science Stream</p>
+                            <p class="text-gray-300 text-base font-medium">SSVPS Jr. College, Dhule</p>
+                        </div>
+                        
+                        <!-- Duration -->
+                        <div class="mb-6">
+                            <p class="text-gray-400 text-sm font-medium bg-gray-800/50 px-3 py-2 rounded-lg inline-block">
+                                📅 2020 - 2022
+                            </p>
+                        </div>
+                        
+                        <!-- Details -->
+                        <div class="space-y-3">
+                            <div class="bg-blue-500/10 p-4 rounded-lg border-l-4 border-blue-500">
+                                <p class="text-white font-semibold text-lg">
+                                    📊 Percentage: <span class="text-blue-400">73.67%</span>
+                                </p>
+                            </div>
+                            <div class="space-y-2 text-sm text-gray-300">
+                                <p class="flex items-start">
+                                    <span class="text-orange-primary mr-2 mt-1">🏛️</span>
+                                    <span>Board: Maharashtra State Board</span>
+                                </p>
+                                <p class="flex items-start">
+                                    <span class="text-orange-primary mr-2 mt-1">📖</span>
+                                    <span>Subjects: Physics, Chemistry, Mathematics</span>
+                                </p>
+                                <p class="flex items-start">
+                                    <span class="text-orange-primary mr-2 mt-1">🔬</span>
+                                    <span>Strong foundation in Science subjects</span>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Education Item 3 - Secondary School -->
-                <div class="relative flex items-center justify-between w-full">
-                    <div class="w-5/12">
-                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-orange-500">
-                            <h3 class="text-xl font-semibold text-white mb-2">Secondary School Certificate (SSC)</h3>
-                            <p class="text-orange-400 font-medium mb-2">General Studies</p>
-                            <p class="text-gray-400 mb-3">Ahilyadevi Vidyalaya, Awadhan</p>
-                            <p class="text-gray-500 text-sm mb-3">2019 - 2020</p>
-                            <div class="space-y-1 text-sm text-gray-400">
-                                <p>• <strong>Percentage:</strong> 88.20%</p>
-                                <p>• Board: Maharashtra State Board</p>
-                                <p>• Strong foundation in core subjects</p>
+                <!-- Education Card 3 - SSC -->
+                <div class="group relative overflow-hidden animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="glass-card p-6 sm:p-8 rounded-xl shadow-xl border border-orange-primary/30 hover:border-orange-primary/60 transition-all duration-300 card-3d h-full">
+                        <!-- Header -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                                🎒 Secondary
+                            </span>
+                            <div class="text-2xl animate-float" style="animation-delay: 2s;">🏠</div>
+                        </div>
+                        
+                        <!-- Card Header -->
+                        <div class="mb-6">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-orange-primary transition-colors duration-300">
+                                Secondary School Certificate
+                            </h3>
+                            <p class="text-orange-primary font-semibold text-lg mb-2">General Studies</p>
+                            <p class="text-gray-300 text-base font-medium">Ahilyadevi Vidyalaya, Awadhan</p>
+                        </div>
+                        
+                        <!-- Duration -->
+                        <div class="mb-6">
+                            <p class="text-gray-400 text-sm font-medium bg-gray-800/50 px-3 py-2 rounded-lg inline-block">
+                                📅 2019 - 2020
+                            </p>
+                        </div>
+                        
+                        <!-- Details -->
+                        <div class="space-y-3">
+                            <div class="bg-green-500/10 p-4 rounded-lg border-l-4 border-green-500">
+                                <p class="text-white font-semibold text-lg">
+                                    📊 Percentage: <span class="text-green-400">88.20%</span>
+                                </p>
+                            </div>
+                            <div class="space-y-2 text-sm text-gray-300">
+                                <p class="flex items-start">
+                                    <span class="text-orange-primary mr-2 mt-1">🏛️</span>
+                                    <span>Board: Maharashtra State Board</span>
+                                </p>
+                                <p class="flex items-start">
+                                    <span class="text-orange-primary mr-2 mt-1">📚</span>
+                                    <span>Strong foundation in core subjects</span>
+                                </p>
+                                <p class="flex items-start">
+                                    <span class="text-orange-primary mr-2 mt-1">🌟</span>
+                                    <span>Excellent academic performance</span>
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-orange-500 rounded-full border-4 border-gray-800 shadow"></div>
-                    <div class="w-5/12"></div>
                 </div>
             </div>
         </div>
         
         <!-- Academic Focus Areas -->
-        <div class="mt-16 max-w-6xl mx-auto">
-            <h3 class="text-2xl font-semibold text-center mb-8 text-gray-300">Academic Focus Areas</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition duration-300 border border-gray-700 hover:border-orange-500/50">
-                    <div class="text-3xl mb-3 text-orange-400">💻</div>
-                    <h4 class="font-semibold text-white mb-2">Software Engineering</h4>
-                    <p class="text-gray-400 text-sm">Design Patterns & Architecture</p>
+        <div class="mt-12 sm:mt-16 max-w-6xl mx-auto animate-fade-in-up">
+            <h3 class="text-xl sm:text-2xl font-semibold text-center mb-6 sm:mb-8 text-gray-300">Academic Focus Areas</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 stagger-children animate">
+                <div class="glass-card p-4 sm:p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300 border border-orange-primary/20 hover:border-orange-primary/50 card-3d">
+                    <div class="text-2xl sm:text-3xl mb-2 sm:mb-3 text-orange-primary animate-float">💻</div>
+                    <h4 class="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-base">Software Engineering</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm">Design Patterns & Architecture</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition duration-300 border border-gray-700 hover:border-orange-500/50">
-                    <div class="text-3xl mb-3 text-orange-400">🗃️</div>
-                    <h4 class="font-semibold text-white mb-2">Database Systems</h4>
-                    <p class="text-gray-400 text-sm">SQL & DBMS Concepts</p>
+                <div class="glass-card p-4 sm:p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300 border border-orange-primary/20 hover:border-orange-primary/50 card-3d">
+                    <div class="text-2xl sm:text-3xl mb-2 sm:mb-3 text-orange-primary animate-float" style="animation-delay: 1s;">🗃️</div>
+                    <h4 class="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-base">Database Systems</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm">SQL & DBMS Concepts</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition duration-300 border border-gray-700 hover:border-orange-500/50">
-                    <div class="text-3xl mb-3 text-orange-400">🌐</div>
-                    <h4 class="font-semibold text-white mb-2">Web Development</h4>
-                    <p class="text-gray-400 text-sm">Full-Stack Technologies</p>
+                <div class="glass-card p-4 sm:p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300 border border-orange-primary/20 hover:border-orange-primary/50 card-3d">
+                    <div class="text-2xl sm:text-3xl mb-2 sm:mb-3 text-orange-primary animate-float" style="animation-delay: 2s;">🌐</div>
+                    <h4 class="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-base">Web Development</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm">Full-Stack Technologies</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition duration-300 border border-gray-700 hover:border-orange-500/50">
-                    <div class="text-3xl mb-3 text-orange-400">🤖</div>
-                    <h4 class="font-semibold text-white mb-2">AI & Research</h4>
-                    <p class="text-gray-400 text-sm">Neural Networks & BCI</p>
+                <div class="glass-card p-4 sm:p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300 border border-orange-primary/20 hover:border-orange-primary/50 card-3d">
+                    <div class="text-2xl sm:text-3xl mb-2 sm:mb-3 text-orange-primary animate-float" style="animation-delay: 3s;">🤖</div>
+                    <h4 class="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-base">AI & Research</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm">Neural Networks & BCI</p>
                 </div>
             </div>
         </div>

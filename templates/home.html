@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vansh Gosavi - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     animation: {
                         'fade-in-up': 'fadeInUp 0.8s ease-out',
-                        'bounce-slow': 'bounce 2s infinite',
+                        'fade-in-down': 'fadeInDown 0.8s ease-out',
+                        'fade-in-left': 'fadeInLeft 0.8s ease-out',
+                        'fade-in-right': 'fadeInRight 0.8s ease-out',
+                        'bounce-slow': 'bounce 3s infinite',
                         'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out infinite 2s',
                         'glow': 'glow 2s ease-in-out infinite alternate',
                         'pulse-orange': 'pulseOrange 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'rotate-y': 'rotateY 20s linear infinite',
@@ -21,11 +25,27 @@
                         'slide-in-right': 'slideInRight 0.8s ease-out',
                         'morph': 'morph 8s ease-in-out infinite',
                         'gradient-shift': 'gradientShift 4s ease-in-out infinite',
+                        'scale-in': 'scaleIn 0.6s ease-out',
+                        'typewriter': 'typewriter 4s steps(40) infinite',
+                        'shimmer': 'shimmer 2s ease-in-out infinite',
+                        'particle-float': 'particleFloat 10s ease-in-out infinite',
                     },
                     keyframes: {
                         fadeInUp: {
                             '0%': { opacity: '0', transform: 'translateY(50px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-50px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        fadeInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
                         },
                         float: {
                             '0%, 100%': { transform: 'translateY(0px) rotateX(0deg)' },
@@ -95,14 +115,37 @@
                                 background: 'linear-gradient(45deg, #f97316, #f59e0b, #dc2626)',
                             },
                         },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' },
+                        },
+                        typewriter: {
+                            '0%': { width: '0' },
+                            '50%': { width: '100%' },
+                            '100%': { width: '0' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        },
+                        particleFloat: {
+                            '0%, 100%': { transform: 'translateY(0px) translateX(0px) rotate(0deg)' },
+                            '33%': { transform: 'translateY(-30px) translateX(20px) rotate(120deg)' },
+                            '66%': { transform: 'translateY(10px) translateX(-15px) rotate(240deg)' },
+                        },
                     },
                     colors: {
-                        dark: '#0a0a0a',
-                        darker: '#050505',
-                        'dark-red': '#1a0000',
-                        'blood-red': '#2d0000',
+                        dark: '#000000',
+                        darker: '#0a0a0a',
+                        'dark-orange': '#1a0f00',
+                        'blood-orange': '#2d1a00',
                         'orange-glow': '#ff6b00',
                         'orange-bright': '#ff8500',
+                        'professional-dark': '#111827',
+                        'professional-darker': '#0f172a',
+                        'orange-primary': '#f97316',
+                        'orange-secondary': '#ea580c',
+                        'orange-accent': '#fb923c',
                     },
                     perspective: {
                         '1000': '1000px',
@@ -113,61 +156,81 @@
         }
     </script>
     <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 50%, #0a0a0a 100%);
+            font-family: 'Poppins', 'Inter', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a0f00 25%, #2d1a00 50%, #1a0f00 75%, #000000 100%);
             min-height: 100vh;
         }
+        
         .gradient-text {
-            background: linear-gradient(90deg, #f97316, #ff6b00, #ea580c);
+            background: linear-gradient(135deg, #f97316, #ff6b00, #ea580c, #fb923c);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             animation: gradientShift 3s ease-in-out infinite;
+            background-size: 200% 200%;
         }
+        
         .glass-effect {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+        
+        .glass-card {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(16px);
             border: 1px solid rgba(249, 115, 22, 0.2);
         }
+        
         .perspective-1000 {
             perspective: 1000px;
         }
+        
         .preserve-3d {
             transform-style: preserve-3d;
         }
-        .rotate-x-12 {
-            transform: rotateX(12deg);
-        }
+        
         .shadow-orange {
             box-shadow: 0 25px 50px -12px rgba(249, 115, 22, 0.25);
         }
+        
         .text-shadow {
             text-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
         }
+        
         .card-3d {
             transform-style: preserve-3d;
-            transition: transform 0.6s;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
         }
+        
         .card-3d:hover {
-            transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+            transform: rotateY(5deg) rotateX(5deg) scale(1.02);
         }
+        
         .floating-element {
             animation: float 6s ease-in-out infinite;
         }
+        
         .morphing-bg {
             position: absolute;
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(45deg, #dc2626, #ea580c, #f97316);
-            opacity: 0.1;
-            animation: morph 8s ease-in-out infinite;
-            filter: blur(40px);
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, #dc2626, #ea580c, #f97316, #fb923c);
+            opacity: 0.08;
+            animation: morph 12s ease-in-out infinite;
+            filter: blur(60px);
         }
+        
         .glow-border {
             position: relative;
             overflow: hidden;
         }
+        
         .glow-border::before {
             content: '';
             position: absolute;
@@ -180,6 +243,7 @@
             z-index: -1;
             animation: rotate-y 4s linear infinite;
         }
+        
         .glow-border::after {
             content: '';
             position: absolute;
@@ -187,6 +251,43 @@
             background: inherit;
             border-radius: inherit;
             z-index: -1;
+        }
+        
+        .shimmer-effect {
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(249, 115, 22, 0.4),
+                transparent
+            );
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #f97316;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: particleFloat 10s ease-in-out infinite;
+        }
+        
+        /* Enhanced Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .morphing-bg {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .card-3d:hover {
+                transform: scale(1.02);
+            }
+            
+            .floating-element {
+                animation: none;
+            }
         }
         
         /* SPA Loading and Transition Styles */
@@ -197,22 +298,29 @@
         }
         
         .section-transition {
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .fade-in-section {
-            animation: fadeInSection 0.8s ease-out forwards;
+            animation: fadeInUp 0.8s ease-out forwards;
         }
         
-        @keyframes fadeInSection {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .stagger-children.animate > *:nth-child(1) { transition-delay: 0.1s; }
+        .stagger-children.animate > *:nth-child(2) { transition-delay: 0.2s; }
+        .stagger-children.animate > *:nth-child(3) { transition-delay: 0.3s; }
+        .stagger-children.animate > *:nth-child(4) { transition-delay: 0.4s; }
+        .stagger-children.animate > *:nth-child(5) { transition-delay: 0.5s; }
+        .stagger-children.animate > *:nth-child(6) { transition-delay: 0.6s; }
+        
+        .stagger-children.animate > * {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .active-nav {
@@ -222,8 +330,8 @@
         
         .lazy-load {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
         }
         
         .lazy-load.loaded {
@@ -250,7 +358,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #0a0a0a, #1a0000);
+            background: linear-gradient(135deg, #000000, #1a0f00);
             z-index: 9999;
             opacity: 0;
             pointer-events: none;
@@ -261,9 +369,507 @@
             opacity: 1;
             pointer-events: all;
         }
+
+        /* Advanced Loader Styles */
+        .website-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #000000 0%, #1a0a00 50%, #2d1b00 100%);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+        }
+
+        .website-loader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+        }
+
+        .loader-container {
+            text-align: center;
+            position: relative;
+        }
+
+        .loader-logo {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #f97316, #fb923c, #fdba74, #f97316);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-text 3s ease-in-out infinite, pulse-scale 2s ease-in-out infinite;
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .loader-spinner {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+        }
+
+        .spinner-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid transparent;
+            border-radius: 50%;
+            animation: rotate 2s linear infinite;
+        }
+
+        .spinner-ring:nth-child(1) {
+            border-top-color: #f97316;
+            animation-duration: 0.8s;
+        }
+
+        .spinner-ring:nth-child(2) {
+            border-right-color: #fb923c;
+            animation-duration: 1s;
+            animation-direction: reverse;
+        }
+
+        .spinner-ring:nth-child(3) {
+            border-bottom-color: #fdba74;
+            animation-duration: 1.2s;
+        }
+
+        .spinner-ring:nth-child(4) {
+            border-left-color: #f97316;
+            animation-duration: 1.4s;
+            animation-direction: reverse;
+        }
+
+        .loader-text {
+            color: #f97316;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            animation: text-glow 2s ease-in-out infinite alternate;
+        }
+
+        .loader-progress {
+            width: 300px;
+            height: 4px;
+            background: rgba(249, 115, 22, 0.2);
+            border-radius: 2px;
+            margin: 0 auto 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #f97316, #fb923c, #fdba74);
+            width: 0%;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        .loader-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #f97316;
+            animation: dot-pulse 1.4s ease-in-out infinite both;
+        }
+
+        .dot:nth-child(1) { animation-delay: -0.32s; }
+        .dot:nth-child(2) { animation-delay: -0.16s; }
+        .dot:nth-child(3) { animation-delay: 0s; }
+
+        .loader-percentage {
+            color: #fb923c;
+            font-size: 1rem;
+            font-weight: 500;
+            animation: number-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradient-text {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes pulse-scale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes text-glow {
+            from { text-shadow: 0 0 10px rgba(249, 115, 22, 0.5); }
+            to { text-shadow: 0 0 20px rgba(249, 115, 22, 0.8), 0 0 30px rgba(249, 115, 22, 0.4); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes dot-pulse {
+            0%, 80%, 100% {
+                transform: scale(0);
+                opacity: 0.5;
+            }
+            40% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes number-glow {
+            from { text-shadow: 0 0 5px rgba(251, 146, 60, 0.5); }
+            to { text-shadow: 0 0 15px rgba(251, 146, 60, 0.8); }
+        }
+
+        /* Hide main content until loaded */
+        body:not(.page-loaded) .main-content {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        body.page-loaded .main-content {
+            opacity: 1;
+            pointer-events: all;
+            transition: opacity 0.6s ease-in;
+        }
+
+        /* Enhance page load animation */
+        .page-loaded section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .page-loaded section:nth-child(even) {
+            animation-delay: 0.1s;
+        }
+
+        .page-loaded section:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+
+        /* Experience Cards Equal Height Styles */
+        .experience-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 500px;
+            max-width: 380px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .experience-header {
+            flex-shrink: 0;
+        }
+
+        .experience-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* Ensure grid items have equal height */
+        @media (min-width: 1024px) {
+            .experience-card {
+                min-height: 550px;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .experience-card {
+                min-height: 480px;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .experience-card {
+                min-height: 450px;
+            }
+        }
+
+        /* Comprehensive Responsive Styles */
+        
+        /* Extra Small Devices */
+        @media (max-width: 374px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            .hero .gradient-text {
+                font-size: 1.5rem !important;
+            }
+        }
+
+        /* Small Devices Optimizations */
+        @media (max-width: 640px) {
+            .timeline-fix::before {
+                left: 1rem !important;
+            }
+            
+            .glass-card {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.75rem !important;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* Medium Devices Optimizations */
+        @media (min-width: 641px) and (max-width: 1023px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            
+            .experience-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        /* Mobile Navigation Styles */
+        .mobile-nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #f97316, #fb923c);
+            transition: width 0.3s ease;
+        }
+
+        .mobile-nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Enhanced Responsive Typography */
+        .responsive-text-xs { font-size: 0.75rem; }
+        .responsive-text-sm { font-size: 0.875rem; }
+        .responsive-text-base { font-size: 1rem; }
+        .responsive-text-lg { font-size: 1.125rem; }
+        .responsive-text-xl { font-size: 1.25rem; }
+        .responsive-text-2xl { font-size: 1.5rem; }
+        .responsive-text-3xl { font-size: 1.875rem; }
+        .responsive-text-4xl { font-size: 2.25rem; }
+
+        @media (min-width: 640px) {
+            .responsive-text-xs { font-size: 0.75rem; }
+            .responsive-text-sm { font-size: 0.875rem; }
+            .responsive-text-base { font-size: 1rem; }
+            .responsive-text-lg { font-size: 1.125rem; }
+            .responsive-text-xl { font-size: 1.25rem; }
+            .responsive-text-2xl { font-size: 1.5rem; }
+            .responsive-text-3xl { font-size: 1.875rem; }
+            .responsive-text-4xl { font-size: 2.25rem; }
+        }
+
+        @media (min-width: 768px) {
+            .responsive-text-xs { font-size: 0.75rem; }
+            .responsive-text-sm { font-size: 0.875rem; }
+            .responsive-text-base { font-size: 1rem; }
+            .responsive-text-lg { font-size: 1.125rem; }
+            .responsive-text-xl { font-size: 1.25rem; }
+            .responsive-text-2xl { font-size: 1.5rem; }
+            .responsive-text-3xl { font-size: 1.875rem; }
+            .responsive-text-4xl { font-size: 2.25rem; }
+        }
+
+        /* Landscape Mobile Optimizations */
+        @media screen and (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                min-height: 100vh;
+                padding-top: 4rem;
+                padding-bottom: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            .hero .skills-preview {
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .hero .cta-buttons {
+                flex-direction: row !important;
+                flex-wrap: wrap !important;
+                gap: 0.5rem !important;
+            }
+        }
+
+        /* High DPI Displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .glass-card {
+                backdrop-filter: blur(12px);
+            }
+            
+            .gradient-text {
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .fixed, .sticky {
+                position: relative !important;
+            }
+            
+            .animate-fade-in-up, .animate-fade-in-down, 
+            .animate-fade-in-left, .animate-fade-in-right {
+                animation: none !important;
+            }
+            
+            .glass-card {
+                background: white !important;
+                color: black !important;
+                border: 1px solid #ccc !important;
+            }
+        }
+
+        /* Touch Device Optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .hover\:scale-105:hover {
+                transform: none;
+            }
+            
+            .card-3d:hover {
+                transform: none;
+            }
+            
+            button, a {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+
+        /* Accessibility Enhancements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Dark Mode Support (Future Enhancement) */
+        @media (prefers-color-scheme: dark) {
+            /* Already using dark theme by default */
+        }
+        
+        /* Smooth scroll fix */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Prevent layout shifts */
+        section {
+            will-change: transform;
+        }
+        
+        .timeline-fix {
+            position: relative;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-fix::before {
+                left: 20px !important;
+            }
+        }
     </style>
 </head>
-<body class="bg-dark text-gray-100 relative overflow-x-hidden">
+<body class="bg-gradient-to-br from-dark via-darker to-professional-dark text-gray-100 relative overflow-x-hidden">
+    <!-- Advanced Website Loader -->
+    <div id="website-loader" class="website-loader">
+        <div class="loader-container">
+            <!-- Animated Background Particles -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute w-2 h-2 bg-orange-400 rounded-full animate-ping" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+                <div class="absolute w-1 h-1 bg-orange-300 rounded-full animate-ping" style="top: 40%; right: 15%; animation-delay: 1s;"></div>
+                <div class="absolute w-3 h-3 bg-orange-500 rounded-full animate-ping" style="bottom: 30%; left: 20%; animation-delay: 2s;"></div>
+                <div class="absolute w-1 h-1 bg-orange-200 rounded-full animate-ping" style="bottom: 20%; right: 25%; animation-delay: 0.5s;"></div>
+                <div class="absolute w-2 h-2 bg-orange-400 rounded-full animate-ping" style="top: 60%; left: 80%; animation-delay: 1.5s;"></div>
+            </div>
+            
+            <div class="loader-logo">VG</div>
+            
+            <div class="loader-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            
+            <div class="loader-text">Loading Portfolio...</div>
+            
+            <div class="loader-progress">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            
+            <div class="loader-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            
+            <div class="loader-percentage" id="loader-percentage">0%</div>
+            
+            <!-- Loading Status Text -->
+            <div class="mt-4 text-gray-400 text-sm" id="loading-status">Initializing...</div>
+        </div>
+    </div>
+
     <!-- Page Transition Overlay -->
     <div id="page-transition" class="page-transition-overlay">
         <div class="flex items-center justify-center h-full">
@@ -274,65 +880,104 @@
         </div>
     </div>
 
-    <!-- Animated Background Elements -->
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="morphing-bg top-10 left-10 animate-morph"></div>
-        <div class="morphing-bg top-1/3 right-10 animate-morph" style="animation-delay: 2s;"></div>
-        <div class="morphing-bg bottom-20 left-1/4 animate-morph" style="animation-delay: 4s;"></div>
-        <div class="morphing-bg bottom-10 right-1/3 animate-morph" style="animation-delay: 6s;"></div>
-    </div>
+    <!-- Main Website Content -->
+    <div class="main-content">
+        <!-- Animated Background Elements -->
+        <div class="fixed inset-0 z-0 pointer-events-none">
+            <div class="morphing-bg top-10 left-10 animate-morph"></div>
+            <div class="morphing-bg top-1/3 right-10 animate-morph" style="animation-delay: 2s;"></div>
+            <div class="morphing-bg bottom-20 left-1/4 animate-morph" style="animation-delay: 4s;"></div>
+            <div class="morphing-bg bottom-10 right-1/3 animate-morph" style="animation-delay: 6s;"></div>
+        </div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full glass-effect border-b border-orange-500/30 z-50 animate-slide-in-left">
-        <div class="container mx-auto px-6 py-4">
+    <!-- Navigation - Fully Responsive with Clean Button Display -->
+    <nav class="fixed top-0 w-full glass-effect border-b border-orange-500/30 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
             <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-3 floating-element">
-                    <div class="bg-gradient-to-br from-orange-500 to-red-600 w-10 h-10 flex items-center justify-center rounded-lg glow-border animate-glow">
-                        <span class="text-xl font-bold text-white text-shadow">VG</span>
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    <div class="bg-gradient-to-br from-orange-500 to-red-600 w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center rounded-lg border border-orange-400">
+                        <span class="text-lg sm:text-xl font-bold text-white">VG</span>
                     </div>
-                    <span class="text-2xl font-bold gradient-text">Vansh Gosavi</span>
+                    <span class="text-lg sm:text-xl md:text-2xl font-bold text-orange-primary hidden sm:block">Vansh Gosavi</span>
+                    <span class="text-lg sm:text-xl md:text-2xl font-bold text-orange-primary block sm:hidden">Vansh</span>
                 </div>
-                <div class="hidden md:flex space-x-8 text-sm">
-                    <a href="#hero" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                
+                <!-- Desktop Navigation - Clean No Animations -->
+                <div class="hidden lg:flex space-x-6 xl:space-x-8 text-sm">
+                    <a href="#hero" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group px-2 py-1">
                         Home
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
                     </a>
-                    <a href="#about" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                    <a href="#about" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group px-2 py-1">
                         About
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
                     </a>
-                    <a href="#education" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                    <a href="#education" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group px-2 py-1">
                         Education
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
                     </a>
-                    <a href="#skills" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                    <a href="#skills" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group px-2 py-1">
                         Skills
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
                     </a>
-                    <a href="#projects" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                    <a href="#projects" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group px-2 py-1">
                         Projects
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
                     </a>
-                    <a href="#experience" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                    <a href="#experience" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group px-2 py-1">
                         Experience
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
                     </a>
-                    <a href="#research" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                    <a href="#research" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group px-2 py-1">
                         Research
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
                     </a>
-                    <a href="#contact" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group">
+                    <a href="#contact" class="text-gray-300 hover:text-orange-400 transition duration-300 relative group px-2 py-1">
                         Contact
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
                     </a>
                 </div>
-                <!-- Mobile menu button -->
-                <button class="md:hidden text-gray-300 hover:text-orange-400 animate-pulse-orange p-2 rounded-lg" id="mobile-menu-btn">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                
+                <!-- Mobile menu button - Clean Design -->
+                <button class="lg:hidden text-gray-300 hover:text-orange-400 transition-colors duration-300 p-2 rounded-lg border border-transparent hover:border-orange-400/30 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
+            
+            <!-- Mobile Navigation Menu - Enhanced Responsive -->
+            <div class="lg:hidden fixed inset-0 bg-professional-dark/95 backdrop-blur-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out" id="mobile-menu">
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-between items-center p-4 sm:p-6 border-b border-orange-500/30">
+                        <div class="flex items-center space-x-3">
+                            <div class="bg-gradient-to-br from-orange-500 to-red-600 w-8 h-8 flex items-center justify-center rounded-lg">
+                                <span class="text-lg font-bold text-white">VG</span>
+                            </div>
+                            <span class="text-xl font-bold text-orange-primary">Vansh Gosavi</span>
+                        </div>
+                        <button class="text-gray-300 hover:text-orange-400 p-2 rounded-lg transition-colors duration-300" id="mobile-menu-close" aria-label="Close mobile menu">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex-1 overflow-y-auto">
+                        <div class="px-4 sm:px-6 py-6 space-y-4">
+                            <a href="#hero" class="mobile-nav-link block text-gray-300 hover:text-orange-400 transition duration-300 text-lg py-3 border-b border-gray-700/50 hover:border-orange-400/50">Home</a>
+                            <a href="#about" class="mobile-nav-link block text-gray-300 hover:text-orange-400 transition duration-300 text-lg py-3 border-b border-gray-700/50 hover:border-orange-400/50">About</a>
+                            <a href="#education" class="mobile-nav-link block text-gray-300 hover:text-orange-400 transition duration-300 text-lg py-3 border-b border-gray-700/50 hover:border-orange-400/50">Education</a>
+                            <a href="#skills" class="mobile-nav-link block text-gray-300 hover:text-orange-400 transition duration-300 text-lg py-3 border-b border-gray-700/50 hover:border-orange-400/50">Skills</a>
+                            <a href="#projects" class="mobile-nav-link block text-gray-300 hover:text-orange-400 transition duration-300 text-lg py-3 border-b border-gray-700/50 hover:border-orange-400/50">Projects</a>
+                            <a href="#experience" class="mobile-nav-link block text-gray-300 hover:text-orange-400 transition duration-300 text-lg py-3 border-b border-gray-700/50 hover:border-orange-400/50">Experience</a>
+                            <a href="#research" class="mobile-nav-link block text-gray-300 hover:text-orange-400 transition duration-300 text-lg py-3 border-b border-gray-700/50 hover:border-orange-400/50">Research</a>
+                            <a href="#contact" class="mobile-nav-link block text-gray-300 hover:text-orange-400 transition duration-300 text-lg py-3 border-b border-gray-700/50 hover:border-orange-400/50">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
         </div>
     </nav>
 
@@ -384,21 +1029,228 @@
     <!-- Research & Publications Section -->
     {% include 'sections/research.html' %}
     
-    <!-- Training/Courses & Workshops Section -->
-    {% include 'sections/training.html' %}
-    
-    <!-- Extra Curricular Activities & Interests Section -->
-    {% include 'sections/activities.html' %}
-    
     <!-- Contact Section -->
     {% include 'sections/contact.html' %}
     
     <!-- Footer Section -->
     {% include 'sections/footer.html' %}
 
-    <!-- JavaScript for SPA functionality, enhanced animations, smooth scrolling and mobile menu -->
+    </div> <!-- End Main Content -->
+
+    <!-- JavaScript for enhanced SPA functionality, smooth scrolling and animations -->
     <script>
-        // SPA Router Class
+        // Advanced Website Preloader
+        class WebsitePreloader {
+            constructor() {
+                this.loader = document.getElementById('website-loader');
+                this.progressBar = document.getElementById('progress-bar');
+                this.percentage = document.getElementById('loader-percentage');
+                this.statusText = document.getElementById('loading-status');
+                this.loadedItems = 0;
+                this.totalItems = 0;
+                this.progress = 0;
+                this.maxLoadTime = 1200; // Maximum 1.2 seconds - force complete after this
+                this.minLoadTime = 600; // Minimum 0.6 seconds
+                this.startTime = Date.now();
+                this.forceCompleteTimer = null;
+                
+                this.loadingMessages = [
+                    'Initializing...',
+                    'Loading assets...',
+                    'Almost ready...',
+                    'Ready!'
+                ];
+                
+                this.init();
+            }
+
+            init() {
+                // Set force complete timer to prevent getting stuck
+                this.forceCompleteTimer = setTimeout(() => {
+                    console.log('🔄 Force completing loader to prevent stuck');
+                    this.forceComplete();
+                }, this.maxLoadTime);
+
+                // Start fast loading
+                this.fastLoad();
+                
+                // Update loading messages
+                this.updateLoadingMessages();
+            }
+
+            fastLoad() {
+                // Simulate fast loading with guaranteed completion
+                const steps = [
+                    { progress: 20, message: 'DOM ready', delay: 50 },
+                    { progress: 40, message: 'Styles ready', delay: 100 },
+                    { progress: 60, message: 'Scripts ready', delay: 150 },
+                    { progress: 80, message: 'Components ready', delay: 200 },
+                    { progress: 95, message: 'Finishing up', delay: 250 },
+                    { progress: 100, message: 'Complete', delay: 300 }
+                ];
+
+                steps.forEach((step, index) => {
+                    setTimeout(() => {
+                        this.updateProgress(step.progress);
+                        console.log(`✅ ${step.message}`);
+                        
+                        if (step.progress >= 100) {
+                            this.finishLoading();
+                        }
+                    }, step.delay);
+                });
+            }
+
+            updateLoadingMessages() {
+                let messageIndex = 0;
+                const updateMessage = () => {
+                    if (this.statusText && messageIndex < this.loadingMessages.length) {
+                        this.statusText.textContent = this.loadingMessages[messageIndex];
+                        messageIndex++;
+                        
+                        if (this.progress < 100 && messageIndex < this.loadingMessages.length) {
+                            setTimeout(updateMessage, 100);
+                        }
+                    }
+                };
+                
+                updateMessage();
+            }
+
+            updateProgress(newProgress) {
+                this.progress = Math.min(newProgress, 100);
+                
+                // Smooth progress animation
+                if (this.progressBar) {
+                    this.progressBar.style.width = `${this.progress}%`;
+                }
+                
+                if (this.percentage) {
+                    this.percentage.textContent = `${Math.round(this.progress)}%`;
+                }
+                
+                // Update status based on progress
+                if (this.statusText && this.progress >= 90) {
+                    this.statusText.textContent = 'Ready! 🚀';
+                }
+            }
+
+            forceComplete() {
+                // Clear any existing timers
+                if (this.forceCompleteTimer) {
+                    clearTimeout(this.forceCompleteTimer);
+                }
+                
+                // Force 100% and complete
+                this.updateProgress(100);
+                setTimeout(() => {
+                    this.finishLoading();
+                }, 100);
+            }
+
+            finishLoading() {
+                // Clear timer to prevent double execution
+                if (this.forceCompleteTimer) {
+                    clearTimeout(this.forceCompleteTimer);
+                    this.forceCompleteTimer = null;
+                }
+
+                // Ensure 100% progress
+                this.updateProgress(100);
+                
+                if (this.statusText) {
+                    this.statusText.textContent = 'Welcome! ✨';
+                }
+                
+                // Quick finish
+                setTimeout(() => {
+                    // Add fade out class
+                    this.loader.classList.add('fade-out');
+                    
+                    // Remove loader from DOM after animation
+                    setTimeout(() => {
+                        if (this.loader && this.loader.parentNode) {
+                            this.loader.parentNode.removeChild(this.loader);
+                        }
+                        
+                        // Trigger page ready event
+                        document.body.classList.add('page-loaded');
+                        window.dispatchEvent(new Event('pageLoaded'));
+                        
+                        console.log('🚀 Website loaded successfully!');
+                    }, 400);
+                }, 100);
+            }
+        }
+
+        // Initialize preloader immediately
+        document.addEventListener('DOMContentLoaded', () => {
+            new WebsitePreloader();
+            initMobileNavigation();
+        });
+
+        // Fallback initialization if DOMContentLoaded already fired
+        if (document.readyState === 'loading') {
+            // DOM is still loading
+        } else {
+            // DOM is already loaded
+            new WebsitePreloader();
+            initMobileNavigation();
+        }
+
+        // Mobile Navigation Handler
+        function initMobileNavigation() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            if (!mobileMenuBtn || !mobileMenu || !mobileMenuClose) return;
+
+            // Open mobile menu
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Close mobile menu
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+                document.body.style.overflow = '';
+            }
+
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+            // Close menu when clicking on links
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            // Close menu when clicking outside
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1024) {
+                    closeMobileMenu();
+                }
+            });
+        }
+
+        // Enhanced SPA Router Class with better smooth scrolling
         class SPARouter {
             constructor() {
                 this.routes = {
@@ -410,11 +1262,10 @@
                     'projects': 'projects',
                     'experience': 'experience',
                     'research': 'research',
-                    'training': 'training',
-                    'activities': 'activities',
                     'contact': 'contact'
                 };
                 this.currentSection = 'hero';
+                this.isScrolling = false;
                 this.init();
             }
 
@@ -428,8 +1279,36 @@
                 const hash = window.location.hash.substring(1);
                 this.handleRoute(hash || 'hero', false);
 
-                // Add intersection observer for auto-updating URL
+                // Add enhanced intersection observer
                 this.setupIntersectionObserver();
+                
+                // Setup smooth scroll behavior
+                this.setupSmoothScrolling();
+            }
+            
+            setupSmoothScrolling() {
+                // Override default scroll behavior
+                document.documentElement.style.scrollBehavior = 'smooth';
+                
+                // Add custom easing for better performance
+                window.addEventListener('scroll', this.throttle(() => {
+                    if (!this.isScrolling) {
+                        this.updateParallaxElements();
+                    }
+                }, 16)); // 60fps
+            }
+            
+            throttle(func, limit) {
+                let inThrottle;
+                return function() {
+                    const args = arguments;
+                    const context = this;
+                    if (!inThrottle) {
+                        func.apply(context, args);
+                        inThrottle = true;
+                        setTimeout(() => inThrottle = false, limit);
+                    }
+                }
             }
 
             handleRoute(section, pushState = true) {
@@ -442,8 +1321,10 @@
 
             navigateToSection(sectionId, pushState = true) {
                 const targetSection = document.getElementById(sectionId);
-                if (!targetSection) return;
+                if (!targetSection || this.isScrolling) return;
 
+                this.isScrolling = true;
+                
                 // Update current section
                 this.currentSection = sectionId;
 
@@ -453,30 +1334,56 @@
                     history.pushState({ section: sectionId }, '', newUrl);
                 }
 
-                // Smooth scroll to section
-                const offsetTop = targetSection.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+                // Enhanced smooth scroll with easing
+                this.smoothScrollTo(targetSection);
 
                 // Update active navigation
                 this.updateActiveNav(sectionId);
 
-                // Add loading animation
-                this.addSectionAnimation(targetSection);
-
                 // Update page title
                 this.updatePageTitle(sectionId);
+                
+                // Add section animation after scroll completes
+                setTimeout(() => {
+                    this.addSectionAnimation(targetSection);
+                    this.isScrolling = false;
+                }, 800);
+            }
+            
+            smoothScrollTo(element) {
+                const targetPosition = element.offsetTop - 80;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = Math.min(Math.abs(distance) * 0.8, 1200); // Dynamic duration
+                let start = null;
+
+                const easeInOutCubic = t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+
+                const animation = currentTime => {
+                    if (start === null) start = currentTime;
+                    const timeElapsed = currentTime - start;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    const ease = easeInOutCubic(progress);
+                    
+                    window.scrollTo(0, startPosition + (distance * ease));
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(animation);
+                    }
+                };
+
+                requestAnimationFrame(animation);
             }
 
             updateActiveNav(sectionId) {
                 const navLinks = document.querySelectorAll('nav a[href^="#"]');
                 navLinks.forEach(link => {
-                    link.classList.remove('text-orange-400', 'active-nav');
+                    link.classList.remove('text-orange-primary', 'active-nav');
+                    link.classList.add('text-gray-300');
                     const href = link.getAttribute('href').substring(1);
                     if (href === sectionId || (href === 'hero' && sectionId === 'hero')) {
-                        link.classList.add('text-orange-400', 'active-nav');
+                        link.classList.remove('text-gray-300');
+                        link.classList.add('text-orange-primary', 'active-nav');
                     }
                 });
             }
@@ -490,36 +1397,54 @@
                     'projects': 'Projects - Vansh Gosavi',
                     'experience': 'Experience - Vansh Gosavi',
                     'research': 'Research - Vansh Gosavi',
-                    'training': 'Training - Vansh Gosavi',
-                    'activities': 'Activities - Vansh Gosavi',
                     'contact': 'Contact - Vansh Gosavi'
                 };
                 document.title = titles[sectionId] || 'Vansh Gosavi - Portfolio';
             }
 
             addSectionAnimation(section) {
-                // Add entrance animation to section content
-                const content = section.querySelectorAll('.container > *');
-                content.forEach((element, index) => {
-                    element.style.opacity = '0';
-                    element.style.transform = 'translateY(30px)';
+                // Enhanced stagger animation for section content
+                const staggerElements = section.querySelectorAll('.stagger-children');
+                staggerElements.forEach(container => {
+                    container.classList.add('animate');
+                });
+                
+                // Add lazy load animation for elements
+                const lazyElements = section.querySelectorAll('.lazy-load');
+                lazyElements.forEach((element, index) => {
                     setTimeout(() => {
-                        element.style.transition = 'all 0.6s ease-out';
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
+                        element.classList.add('loaded');
                     }, index * 100);
+                });
+            }
+            
+            updateParallaxElements() {
+                const scrolled = window.pageYOffset;
+                const morphingElements = document.querySelectorAll('.morphing-bg');
+                const floatingElements = document.querySelectorAll('.floating-element');
+                
+                // Update morphing backgrounds with better performance
+                morphingElements.forEach((element, index) => {
+                    const speed = 0.3 + (index * 0.1);
+                    element.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.05}deg)`;
+                });
+                
+                // Update floating elements
+                floatingElements.forEach((element, index) => {
+                    const speed = 0.1 + (index * 0.05);
+                    element.style.transform = `translateY(${Math.sin(scrolled * 0.01 + index) * 10}px)`;
                 });
             }
 
             setupIntersectionObserver() {
                 const observerOptions = {
-                    threshold: 0.6,
+                    threshold: 0.5,
                     rootMargin: '-80px 0px -50% 0px'
                 };
 
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
-                        if (entry.isIntersecting) {
+                        if (entry.isIntersecting && !this.isScrolling) {
                             const sectionId = entry.target.id;
                             if (sectionId && this.currentSection !== sectionId) {
                                 this.currentSection = sectionId;
@@ -544,7 +1469,7 @@
         // Initialize SPA Router
         let router;
 
-        // Flash message functions with enhanced animations
+        // Enhanced flash message functions
         function closeFlashMessage(button) {
             const message = button.closest('.flash-message');
             message.style.transform = 'translateX(100%) scale(0.8) rotateY(90deg)';
@@ -569,7 +1494,7 @@
                     message.style.opacity = '1';
                 }, index * 300);
                 
-                // Auto-hide after 6 seconds with enhanced animation
+                // Auto-hide after 6 seconds
                 setTimeout(() => {
                     if (message.parentElement) {
                         closeFlashMessage(message.querySelector('button'));
@@ -577,123 +1502,85 @@
                 }, 6000 + (index * 300));
             });
 
-            // Add enhanced scroll animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
+            // Enhanced scroll animations with Intersection Observer
             const animationObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('animate-fade-in-up');
+                        
+                        // Trigger stagger animations
+                        const staggerElements = entry.target.querySelectorAll('.stagger-children');
+                        staggerElements.forEach(element => {
+                            element.classList.add('animate');
+                        });
                     }
                 });
-            }, observerOptions);
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            });
 
             // Observe all sections for animations
             document.querySelectorAll('section').forEach(section => {
                 animationObserver.observe(section);
             });
 
-            // Add parallax effect to background elements
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const morphingElements = document.querySelectorAll('.morphing-bg');
-                morphingElements.forEach((element, index) => {
-                    const speed = 0.5 + (index * 0.1);
-                    element.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
-                });
-            });
-
-            // Add mouse movement parallax effect
+            // Add mouse movement parallax effect (optimized)
+            let mouseX = 0, mouseY = 0;
             document.addEventListener('mousemove', (e) => {
-                const mouseX = e.clientX / window.innerWidth;
-                const mouseY = e.clientY / window.innerHeight;
-                
-                document.querySelectorAll('.floating-element').forEach((element, index) => {
-                    const speed = (index + 1) * 10;
-                    element.style.transform = `translate(${mouseX * speed}px, ${mouseY * speed}px)`;
-                });
+                mouseX = e.clientX / window.innerWidth;
+                mouseY = e.clientY / window.innerHeight;
             });
+            
+            // Throttled mouse parallax update
+            setInterval(() => {
+                document.querySelectorAll('.floating-element').forEach((element, index) => {
+                    const speed = (index + 1) * 5;
+                    element.style.transform += ` translate(${mouseX * speed}px, ${mouseY * speed}px)`;
+                });
+            }, 50);
 
-            // Preload section content for better SPA performance
+            // Preload and optimize images
             this.preloadSectionContent();
+            
+            // Initialize contact form functionality
+            this.handleContactFormSPA();
         });
 
-        // SPA Navigation - Enhanced smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Enhanced SPA Navigation
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('a[href^="#"]') || e.target.closest('a[href^="#"]')) {
                 e.preventDefault();
-                const sectionId = this.getAttribute('href').substring(1) || 'hero';
+                const link = e.target.matches('a[href^="#"]') ? e.target : e.target.closest('a[href^="#"]');
+                const sectionId = link.getAttribute('href').substring(1) || 'hero';
                 
                 // Use SPA router for navigation
-                if (router) {
+                if (router && !router.isScrolling) {
                     router.handleRoute(sectionId, true);
                 }
                 
                 // Add visual feedback
-                this.style.transform = 'scale(0.95)';
+                link.style.transform = 'scale(0.95)';
                 setTimeout(() => {
-                    this.style.transform = 'scale(1)';
+                    link.style.transform = 'scale(1)';
                 }, 150);
-            });
+            }
         });
 
-        // Enhanced mobile menu toggle with animations
+        // Enhanced mobile menu with better animations
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.createElement('div');
-        mobileMenu.className = 'md:hidden glass-effect border-t border-orange-500/30 transform translate-y-full opacity-0 transition-all duration-500';
+        mobileMenu.className = 'md:hidden glass-effect border-t border-orange-primary/30 transform translate-y-full opacity-0 transition-all duration-500';
         mobileMenu.innerHTML = `
             <div class="px-6 py-6 space-y-4">
-                <a href="#hero" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-500 group">
-                    <span class="flex items-center">
-                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        Home
-                    </span>
-                </a>
-                <a href="#about" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-500 group">
-                    <span class="flex items-center">
-                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        About
-                    </span>
-                </a>
-                <a href="#education" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-500 group">
-                    <span class="flex items-center">
-                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        Education
-                    </span>
-                </a>
-                <a href="#skills" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-500 group">
-                    <span class="flex items-center">
-                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        Skills
-                    </span>
-                </a>
-                <a href="#projects" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-500 group">
-                    <span class="flex items-center">
-                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        Projects
-                    </span>
-                </a>
-                <a href="#experience" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-500 group">
-                    <span class="flex items-center">
-                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        Experience
-                    </span>
-                </a>
-                <a href="#research" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-500 group">
-                    <span class="flex items-center">
-                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        Research
-                    </span>
-                </a>
-                <a href="#contact" class="block text-gray-300 hover:text-orange-400 py-3 text-lg font-medium transition duration-300 group">
-                    <span class="flex items-center">
-                        <span class="w-2 h-2 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        Contact
-                    </span>
-                </a>
+                ${['hero', 'about', 'education', 'skills', 'projects', 'experience', 'research', 'contact'].map(section => `
+                    <a href="#${section}" class="mobile-menu-item block text-gray-300 hover:text-orange-primary py-3 text-lg font-medium transition duration-300 border-b border-gray-800 hover:border-orange-primary group">
+                        <span class="flex items-center">
+                            <span class="w-2 h-2 bg-orange-primary rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                            ${section.charAt(0).toUpperCase() + section.slice(1)}
+                        </span>
+                    </a>
+                `).join('')}
             </div>
         `;
         
@@ -701,14 +1588,18 @@
         mobileMenuBtn.addEventListener('click', () => {
             if (!menuOpen) {
                 mobileMenuBtn.parentElement.parentElement.parentElement.appendChild(mobileMenu);
-                // Trigger animation after element is added to DOM
                 setTimeout(() => {
                     mobileMenu.style.transform = 'translateY(0)';
                     mobileMenu.style.opacity = '1';
+                    // Animate menu items
+                    const items = mobileMenu.querySelectorAll('.mobile-menu-item');
+                    items.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('show');
+                        }, index * 100);
+                    });
                 }, 10);
                 menuOpen = true;
-                
-                // Animate menu button
                 mobileMenuBtn.style.transform = 'rotate(90deg)';
             } else {
                 mobileMenu.style.transform = 'translateY(-100%)';
@@ -719,8 +1610,6 @@
                     }
                 }, 500);
                 menuOpen = false;
-                
-                // Reset menu button
                 mobileMenuBtn.style.transform = 'rotate(0deg)';
             }
         });
@@ -740,28 +1629,24 @@
             }
         });
 
-        // SPA Performance Optimizations
+        // Performance optimizations
         function preloadSectionContent() {
-            // Preload critical resources
-            const criticalImages = document.querySelectorAll('img[data-src]');
-            criticalImages.forEach(img => {
-                img.src = img.dataset.src;
-            });
-
-            // Lazy load non-critical content
-            const lazyElements = document.querySelectorAll('.lazy-load');
-            const lazyObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('loaded');
-                        lazyObserver.unobserve(entry.target);
-                    }
+            // Lazy load images
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
+                    });
                 });
-            });
 
-            lazyElements.forEach(element => {
-                lazyObserver.observe(element);
-            });
+                lazyImages.forEach(img => imageObserver.observe(img));
+            }
         }
 
         // Contact form SPA integration
@@ -771,36 +1656,39 @@
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    // Show loading state
                     const submitBtn = document.getElementById('submit-btn');
                     const submitText = document.getElementById('submit-text');
                     const submitLoading = document.getElementById('submit-loading');
                     
-                    submitBtn.disabled = true;
-                    submitText.classList.add('hidden');
-                    submitLoading.classList.remove('hidden');
-                    
-                    // Submit form via AJAX for SPA experience
-                    const formData = new FormData(this);
-                    fetch('/contact', {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(response => response.text())
-                    .then(data => {
-                        // Show success message without page reload
-                        showSPAFlashMessage('✅ Message sent successfully! Thank you, I will respond within 24-48 hours.', 'success');
-                        contactForm.reset();
-                    })
-                    .catch(error => {
-                        showSPAFlashMessage('⚠️ There was an error sending your message. Please try again.', 'error');
-                    })
-                    .finally(() => {
-                        // Reset button state
-                        submitBtn.disabled = false;
-                        submitText.classList.remove('hidden');
-                        submitLoading.classList.add('hidden');
-                    });
+                    if (submitBtn && submitText && submitLoading) {
+                        submitBtn.disabled = true;
+                        submitText.classList.add('hidden');
+                        submitLoading.classList.remove('hidden');
+                        
+                        const formData = new FormData(this);
+                        fetch('/contact', {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'X-Requested-With': 'XMLHttpRequest'
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            showSPAFlashMessage(data.message, data.status);
+                            if (data.status === 'success') {
+                                contactForm.reset();
+                            }
+                        })
+                        .catch(error => {
+                            showSPAFlashMessage('⚠️ There was an error sending your message. Please try again.', 'error');
+                        })
+                        .finally(() => {
+                            submitBtn.disabled = false;
+                            submitText.classList.remove('hidden');
+                            submitLoading.classList.add('hidden');
+                        });
+                    }
                 });
             }
         }
@@ -808,7 +1696,8 @@
         function showSPAFlashMessage(message, type) {
             const flashContainer = document.getElementById('flash-messages') || createFlashContainer();
             const messageDiv = document.createElement('div');
-            const bgColor = type === 'success' ? 'from-green-600 to-emerald-700' : 'from-red-600 to-red-700';
+            const bgColor = type === 'success' ? 'from-green-600 to-emerald-700' : 
+                           type === 'warning' ? 'from-yellow-600 to-amber-700' : 'from-red-600 to-red-700';
             
             messageDiv.className = `flash-message bg-gradient-to-r ${bgColor} text-white px-6 py-4 rounded-xl shadow-orange max-w-md transform translate-x-full opacity-0 transition-all duration-700 ease-out glow-border animate-glow`;
             messageDiv.innerHTML = `
@@ -829,13 +1718,11 @@
             
             flashContainer.appendChild(messageDiv);
             
-            // Animate in
             setTimeout(() => {
                 messageDiv.style.transform = 'translateX(0) scale(1) rotateY(0deg)';
                 messageDiv.style.opacity = '1';
             }, 100);
             
-            // Auto-hide after 6 seconds
             setTimeout(() => {
                 closeFlashMessage(messageDiv.querySelector('button'));
             }, 6000);
@@ -848,9 +1735,6 @@
             document.body.appendChild(container);
             return container;
         }
-
-        // Initialize contact form SPA functionality when DOM is ready
-        document.addEventListener('DOMContentLoaded', handleContactFormSPA);
     </script>
 </body>
 </html>
